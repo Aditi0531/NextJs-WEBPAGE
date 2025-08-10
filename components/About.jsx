@@ -2,27 +2,30 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button, Typography, Box } from "@mui/material";
 import Image from "next/image";
-import user from "../assets/user.png"; // Replace with your image
+import user from "../assets/user.png"; 
 
 export default function AboutSection() {
   return (
     <Box
       sx={{
-        background: "#fdf8f2", // pastel beige from your image
+        background: "#fdf8f2",
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "4rem 2rem",
+        px: { xs: 2, sm: 4, md: 6 },
+       pt: { xs: 0, sm: 10, md: 8 },
+       pb: { xs: 6, md: 8 }, 
       }}
     >
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-          gap: "3rem",
+          gap: { xs: "2rem", md: "3rem" },
           maxWidth: "1200px",
           alignItems: "center",
+          width: "100%",
         }}
       >
         {/* IMAGE WITH ANIMATION */}
@@ -50,8 +53,10 @@ export default function AboutSection() {
             }}
             style={{
               position: "absolute",
-              width: "320px",
-              height: "420px",
+              width: "80%",
+              maxWidth: "320px",
+              height: "auto",
+              aspectRatio: "3/4",
               borderRadius: "50%",
               background:
                 "radial-gradient(circle at top left, #ffb6b9,rgb(218, 137, 115), transparent)",
@@ -59,43 +64,31 @@ export default function AboutSection() {
               zIndex: 0,
             }}
           />
-          {/* <motion.img
-            src={user}
-            alt="About"
+          <motion.div
             style={{
-              width: "300px",
-              height: "400px",
               borderRadius: "50%",
-              objectFit: "cover",
               boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
               position: "relative",
               zIndex: 1,
+              maxWidth: "300px",
+              width: "80%",
             }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200 }}
-          /> */}
-           <motion.div
-      style={{
-        borderRadius: "50%",
-        boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-        position: "relative",
-        zIndex: 1,
-        // The div should have a position other than static for 'fill' to work
-      }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 200 }}
-    >
-      <Image
-        src={user}
-        alt="About"
-        width={300} // The intrinsic width of the image
-        height={500} // The intrinsic height of the image
-        style={{
-          borderRadius: "50%",
-          objectFit: "cover",
-        }}
-      />
-    </motion.div>
+          >
+            <Image
+              src={user}
+              alt="About"
+              width={300}
+              height={400}
+              style={{
+                borderRadius: "50%",
+                objectFit: "cover",
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          </motion.div>
         </motion.div>
 
         {/* TEXT CONTENT */}
@@ -111,6 +104,7 @@ export default function AboutSection() {
               fontWeight: "bold",
               letterSpacing: "1px",
               mb: 1,
+              fontSize: { xs: "0.9rem", sm: "1rem" },
             }}
           >
             ABOUT
@@ -121,23 +115,21 @@ export default function AboutSection() {
               fontWeight: "bold",
               color: "#1a1a1a",
               mb: 2,
+              fontSize: { xs: "1.8rem", sm: "2rem", md: "2.5rem" },
             }}
           >
-            Crafting Unique Brand Experiences Since 2014
+            Building seamless digital experiences.
           </Typography>
           <Typography
             sx={{
               color: "#333",
-              fontSize: "1rem",
+              fontSize: { xs: "0.95rem", sm: "1rem" },
               lineHeight: 1.6,
               mb: 3,
               maxWidth: "500px",
             }}
           >
-            With a Visual Arts degree, my journey began in graphic design,
-            crafting logos and marketing materials. Video editing followed,
-            where meticulous attention to detail set my work apart, and I
-            ventured into 3D modeling for immersive experiences.
+            My passion for visual arts and design led me to software development, where I now build immersive user experiences using ReactJS, design robust back-end systems with NodeJS and Flask, and bring creative ideas to life through code.
           </Typography>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
@@ -146,10 +138,11 @@ export default function AboutSection() {
                 borderColor: "#1a1a1a",
                 color: "#1a1a1a",
                 borderRadius: "999px",
-                px: 3,
+                px: { xs: 2, sm: 3 },
                 py: 1,
                 textTransform: "uppercase",
                 fontWeight: "bold",
+                fontSize: { xs: "0.8rem", sm: "0.9rem" },
                 "&:hover": {
                   backgroundColor: "#1a1a1a",
                   color: "#fff",
